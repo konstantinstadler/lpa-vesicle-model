@@ -23,6 +23,9 @@ docs/site/
 # environment.
 Manifest.toml
 
+# backup files
+*.jl.backup*
+
 # Other stuff
 .tags
 .vscode
