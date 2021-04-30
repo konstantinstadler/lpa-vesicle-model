@@ -1,36 +1,46 @@
-# Example model from the Diff equation webpage
+# Scratchpad - final models are in teh other jl files (as Pluto notebooks)
 
 using DifferentialEquations
 using Plots
 
 
-function sara_spon_recycle!(ds, s, p, tspan)
-# Note: Julia is 1 indexed, the formulas in the original publication are 0 indexed
-    α, β, δ = p.α, p.β, p.δ 
-    ds[1] = -α * s[1] * (s[1] / (s[1] + s[4]))
-    ds[2] = -δ * s[2] + α * (s[1] / (s[1] + s[4])) * s[1]
-    ds[3] = -β * s[3] + δ*s[2]
-    ds[4] = β * s[3]
+# Here we change the model from Sara 2005 to remove the pool of empty-recycled vesicles.
+# Instead, recycled vesicles go back into the loaded vesicle pool
+
+
+function vesicle_recycle!(du, u, p, t_span)
+    α, β, σ = p.α, p.β, p.σ
+    du[1] = -α * u[1] + β * u[3]      # vesicles in the resting pool 
+    du[2] = +α * u[1] - σ * u[2]      # vesicles currently merged with the membrane
+    du[3] = +σ * u[2] - β * u[3]      # currently being recycled vesicles
 end
 
-# TODO: values in figure 5D and SI are different by a a factor of 10"
-p = (α=1/60, β=10.5, δ=1.67)
 
-# paper only states a poool of 15 vesicles, here we put all in the dye loaded state s1 (s0 in the paper)
-s0 = [1000.0,0.0,0.0,0.0]
+p = (α=1/120, β=0.5, σ=1.67)
 
-# origianl graph was for up to 1200 sec
-tspan = (0.0,1200.0)
+function lpa_application(y, t, integrator)
+    return t < 200
+end
 
-prob = ODEProblem(sara_spon_recycle!,s0,tspan,p)
-sol = solve(prob, Tsit5(), abstol = 1e-9, reltol = 1e-9)
+function affect!(integrator)
+    integrator.p = (α=1/120, β=0.01, σ=1.67)
+end
 
-Plots.theme(:sand)
-#  plot(sol)
-p1 = plot(sol,vars=(0,1));
-p2 = plot(sol,vars=(0,2));
-p3 = plot(sol,vars=(0,3));
-p4 = plot(sol,vars=(0,4));
-plot(p1, p2, p3, p4, layout=(2,2))
+callback = ContinuousCallback(lpa_application, affect!)
+
+
+# paper only states a pool of 15 vesicles, here we put all in the dye loaded state s1 (s0 in the paper)
+u0 = [100.0,0.0, 0.0]
+
+# original graph was for up to 1200 sec
+t_span = (0.0,1200.0)
+
+prob = ODEProblem(vesicle_recycle!,u0,t_span,p)
+sol = solve(prob, Tsit5(), abstol = 1e-9, reltol = 1e-9, callback=callback)
+
+Plots.theme(:juno)
+
+plot(sol, vars=(0,2))
+# plot(sol)
 
 
