@@ -19,6 +19,7 @@ begin
 	using DifferentialEquations
 	using Plots
 	using PlutoUI
+	plotly()
 end
 
 # ╔═╡ 2e8ba40e-a759-11eb-10c8-eb85ce6d59a4
@@ -62,7 +63,7 @@ end
 
 
 # ╔═╡ 6b242b10-bdec-4bb0-b681-6fd4ea9c62e7
-md"Next we define the parameters and inital values for the model. Here we use given values in the model description at the Experimental procedures and Fig 5. 
+md"Next we define the parameters and initial values for the model. Here we use given values in the model description at the Experimental procedures and Fig 5. 
 
 **Note** that the parameter values (p below) have contradicting values in the article text:
 
@@ -74,11 +75,11 @@ md"Next we define the parameters and inital values for the model. Here we use gi
 # ╔═╡ 49cf7f94-d8b9-4878-b483-ecffc5f5307f
 begin
 
-md"set α (rate of mobilization) to $(@bind alpha_enter Slider(0.0001:0.0001:0.005,default=0.0008, show_value=true))
+md"set α (rate of mobilization) to $(@bind alpha_enter NumberField(0.0001:0.0001:0.1,default=0.0008))
 
-set β (rate of recycling) to $(@bind beta_enter Slider(0.0:0.1:1.0,default=0.5, show_value=true))
+set β (rate of recycling) to $(@bind beta_enter NumberField(0.0:0.01:1.0,default=0.5))
 
-set δ (rate of dye loss) to $(@bind sig_enter Slider(0.0:0.01:2.0,default=1.67, show_value=true))
+set δ (rate of dye loss) to $(@bind sig_enter NumberField(0.0:0.01:2.0,default=1.67))
 "
 
 	
@@ -88,7 +89,7 @@ end
 begin
 	
 	
-	# paper states a poool of 15 vesicles, but present graphs normalized to 1 - we set all in the dye-loaded state s1 (s0 in the paper)
+	# paper states a pool of 15 vesicles, but present graphs normalized to 1 - we set all in the dye-loaded state s1 (s0 in the paper)
 	s_init = [1.0,0.0,0.0,0.0];
 	
 	# origianl graph was for up to 1200 sec
@@ -110,30 +111,18 @@ sol = solve(prob, Tsit5(), abstol = 1e-9, reltol = 1e-9);
 # ╔═╡ ae55cf1f-45bd-4eaa-9a04-6b204d786d8d
 begin
 	Plots.theme(:juno)
-	plot(sol,vars=(0,1), label="s1(t)")
+	plot(sol,vars=(0,1), label="s1(t)", margin=5Plots.mm)
 	ylabel!("Fraction of loaded pool")
-	title!("Loaded pool\n - corresponds to Fig 5D in the Sara et al 2005 ")
+	title!("Loaded pool (reprod. Fig 5D Sara et al 2005)", fontsize=10)
 end
 
 # ╔═╡ 10a090cb-4e0d-4070-a6a1-a31da9068d0f
 begin
-	p2 = plot(sol,vars=(0,2), label="s2(t)", title="mobilized vesicles");
-	p3 = plot(sol,vars=(0,3), label="s3(t)", title="empty vesicles");
+	p2 = plot(sol,vars=(0,2), label="s2(t)", title="mobilized vesicles", xlabel="");
+	p3 = plot(sol,vars=(0,3), label="s3(t)", title="empty vesicles", xlabel="");
 	p4 = plot(sol,vars=(0,4), label="s4(t)", title="recycled and mixed ves.");
-	plot(p2, p3, p4, layout=grid(3,1))
+	plot(p2, p3, p4, layout=grid(3,1), margin=5Plots.mm)
 end
-
-# ╔═╡ 607679ef-b94f-444e-9582-92968601782a
-
-
-# ╔═╡ 604994c2-13fb-4831-97b1-a65778ab8590
-
-
-# ╔═╡ 2b539313-f7c7-4c28-a7ba-23e978f41ee1
-
-
-# ╔═╡ 18e2da14-447d-47bd-95b3-e8014d577579
-
 
 # ╔═╡ Cell order:
 # ╟─2e8ba40e-a759-11eb-10c8-eb85ce6d59a4
@@ -148,9 +137,5 @@ end
 # ╟─fef63cff-662d-45dc-975e-486cb954595c
 # ╟─88409be8-bb1a-40a4-9f92-f62132eece7b
 # ╟─497d59a4-3e20-4935-91c8-e7d496d0d2f4
-# ╟─ae55cf1f-45bd-4eaa-9a04-6b204d786d8d
-# ╟─10a090cb-4e0d-4070-a6a1-a31da9068d0f
-# ╠═607679ef-b94f-444e-9582-92968601782a
-# ╠═604994c2-13fb-4831-97b1-a65778ab8590
-# ╠═2b539313-f7c7-4c28-a7ba-23e978f41ee1
-# ╠═18e2da14-447d-47bd-95b3-e8014d577579
+# ╠═ae55cf1f-45bd-4eaa-9a04-6b204d786d8d
+# ╠═10a090cb-4e0d-4070-a6a1-a31da9068d0f
