@@ -15,6 +15,11 @@ end
 
 # ╔═╡ ad798920-094d-42d0-9740-76e90ca54a84
 begin
+    import Pkg
+    Pkg.add("DifferentialEquations")
+    Pkg.add("Plots")
+    Pkg.add("PlutoUI")
+
 	using DifferentialEquations
 	using Plots
 	using PlutoUI

@@ -16,6 +16,10 @@ end
 # ╔═╡ f85c6a11-3c29-431b-9016-7c02c8bc533a
 # We first load libraries necessary for this excercise
 begin
+    import Pkg
+    Pkg.add("DifferentialEquations")
+    Pkg.add("Plots")
+    Pkg.add("PlutoUI")
 	using DifferentialEquations
 	using Plots
 	using PlutoUI
