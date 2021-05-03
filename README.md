@@ -10,7 +10,7 @@ Note: For now the notebooks are linked to [Binder](https://mybinder.org/) - the 
 
 Starting the Binder instance (by clicking on the notebook name) might take some minutes. If in doubt, check the build logs and see if something is happening.
 
-- [./notebook_sara2005_reproduce.jl](https://mybinder.org/v2/gh/fonsp/pluto-on-binder/v0.14.5?urlpath=pluto/open?url=https%253A%252F%252Fgithub.com%252Fkonstantinstadler%252Flpa-vesicle-model%252Fblob%252Fmaster%252Fnotebook_sara2005_reproduce.jl%253Fraw%253Dtr u)
+- [./notebook_sara2005_reproduce.jl](https://mybinder.org/v2/gh/fonsp/pluto-on-binder/v0.14.5?urlpath=pluto/open?url=https%253A%252F%252Fgithub.com%252Fkonstantinstadler%252Flpa-vesicle-model%252Fblob%252Fmaster%252Fnotebook_sara2005_reproduce.jl%253Fraw%253Dtrue)
 
     Reproducing figure 5D from the [Sara 2005](https://www.sciencedirect.com/science/article/pii/S0896627305000693?via%3Dihub) publication.
     This is a differential equations based model of spontaneous synaptic vesicle recycling. 
