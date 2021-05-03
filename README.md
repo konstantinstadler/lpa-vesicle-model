@@ -6,17 +6,21 @@ The models are developed in [Julia](https://julialang.org/) using the [Different
 
 ## Structure
 
-- ./notebook_sara2005_reproduce.jl 
+Note: For now the notebooks are linked to [Binder](https://mybinder.org/) - the way forward is to run them in NextJournal.
+
+Starting the Binder instance (by clicking on the notebook name) might take some minutes. If in doubt, check the build logs and see if something is happening.
+
+- [./notebook_sara2005_reproduce.jl](https://mybinder.org/v2/gh/fonsp/pluto-on-binder/v0.14.5?urlpath=pluto/open?url=https%253A%252F%252Fgithub.com%252Fkonstantinstadler%252Flpa-vesicle-model%252Fblob%252Fmaster%252Fnotebook_sara2005_reproduce.jl%253Fraw%253Dtr u)
 
     Reproducing figure 5D from the [Sara 2005](https://www.sciencedirect.com/science/article/pii/S0896627305000693?via%3Dihub) publication.
     This is a differential equations based model of spontaneous synaptic vesicle recycling. 
     The model is based on single pool with four states and in the article fitted against experimental observation with tagged/dyed vesicles.
 
-- **./notebook_three_states_model.jl**
+- **[./notebook_three_states_model.jl](https://hub.gke2.mybinder.org/user/fonsp-pluto-on-binder-wso14ti1/pluto/edit?id=f6b27edc-ac16-11eb-108d-a74913131ec5&token=dOXaqGmMQm-Lg82QWM4bFQhi)**
 
     This is simplified version of the Sara 2005 model with three states, omitting the recycled but no longer dyed state. This should most closely match the observations in our paper.
 
-- ./notebook_two_states_model.jl
+- [./notebook_two_states_model.jl](https://mybinder.org/v2/gh/fonsp/pluto-on-binder/v0.14.5?urlpath=pluto/open?url=https%253A%252F%252Fgithub.com%252Fkonstantinstadler%252Flpa-vesicle-model%252Fblob%252Fmaster%252Fnotebook_two_states_model.jl%253Fraw%253Dtrue)
 
     A even more simple model with a resting pool and a recycling rate. Seems too simple for our application.
 
