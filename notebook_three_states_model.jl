@@ -18,11 +18,11 @@ begin
     import Pkg
 	Pkg.activate(mktempdir())
 
-    # Pkg.add("DifferentialEquations")
-	# using DifferentialEquations
+    Pkg.add("DifferentialEquations")
+	using DifferentialEquations
 
-    Pkg.add("Plots")
-	using Plots
+    # Pkg.add("Plots")
+	# using Plots
 
     Pkg.add("PlutoUI")
 	using PlutoUI
