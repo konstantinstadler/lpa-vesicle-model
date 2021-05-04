@@ -6,26 +6,35 @@ The models are developed in [Julia](https://julialang.org/) using the [Different
 
 ## Structure
 
-TODO: Change this to JuliaHub - investigate how to share notebook
-Note: For now the notebooks are linked to [Binder](https://mybinder.org/) - the way forward is to run them in NextJournal.
 
-Starting the Binder instance (by clicking on the notebook name) might take some minutes. If in doubt, check the build logs and see if something is happening.
-
-- [./notebook_sara2005_reproduce.jl](https://mybinder.org/v2/gh/fonsp/pluto-on-binder/v0.14.5?urlpath=pluto/open?url=https%253A%252F%252Fgithub.com%252Fkonstantinstadler%252Flpa-vesicle-model%252Fblob%252Fmaster%252Fnotebook_sara2005_reproduce.jl%253Fraw%253Dtrue)
+- ./notebook_sara2005_reproduce.jl
 
     Reproducing figure 5D from the [Sara 2005](https://www.sciencedirect.com/science/article/pii/S0896627305000693?via%3Dihub) publication.
     This is a differential equations based model of spontaneous synaptic vesicle recycling. 
     The model is based on single pool with four states and in the article fitted against experimental observation with tagged/dyed vesicles.
 
-- **[./notebook_three_states_model.jl](https://binder.plutojl.org/v0.14.5/open?url=https%253A%252F%252Fgithub.com%252Fkonstantinstadler%252Flpa-vesicle-model%252Fblob%252Fmaster%252Fnotebook_three_states_model.jl%253Fraw%253Dtrue)**
+- **./notebook_three_states_model.jl**
 
     This is simplified version of the Sara 2005 model with three states, omitting the recycled but no longer dyed state. This should most closely match the observations in our paper.
 
-- [./notebook_two_states_model.jl](https://mybinder.org/v2/gh/fonsp/pluto-on-binder/v0.14.5?urlpath=pluto/open?url=https%253A%252F%252Fgithub.com%252Fkonstantinstadler%252Flpa-vesicle-model%252Fblob%252Fmaster%252Fnotebook_two_states_model.jl%253Fraw%253Dtrue)
+- ./notebook_two_states_model.jl
 
     A even more simple model with a resting pool and a recycling rate. Seems too simple for our application.
 
 - ./src/lpa_vesicle_model.jl - Scratchpad for code development and testing. Only coders go there.
+
+## Installation
+
+- [Download and install Julia](https://julialang.org/downloads/)
+- download this repository (pressing the button 'Code' - either to git or just the Zip file - or [follow this link.](https://github.com/konstantinstadler/lpa-vesicle-model/archive/refs/heads/master.zip)) 
+- go to the downloaded and extracted directory and start Julia (command line)
+- activate the environment with 
+    - press `]` (to get into the Julia package manager)
+    - `activate lpa_vesicle_model`
+    - press backspace to go back to the standard Julia prompt
+    - enter `using Pluto; Pluto.run()`
+    - in Pluto copy the file name (starting with notebook...) in the 'open from file' dialog
+    - the first time it might take some minutes for installing/pre-compiling all packages, it is faster the second time
 
 
 ## Citations
@@ -36,11 +45,10 @@ Starting the Binder instance (by clicking on the notebook name) might take some 
 
 ## Background Papers
 
-[Sara 2005](https://www.sciencedirect.com/science/article/pii/S0896627305000693?via%3Dihub) have a differential equation based model
+- [Sara 2005](https://www.sciencedirect.com/science/article/pii/S0896627305000693?via%3Dihub) have a differential equation based model
 
-[Truckenbrodt and Rizzolo 2014](https://www.frontiersin.org/articles/10.3389/fncel.2014.00409/full) on the different observations from Sara 2005 and others
+- [Truckenbrodt and Rizzolo 2014](https://www.frontiersin.org/articles/10.3389/fncel.2014.00409/full) on the different observations from Sara 2005 and others
 
-around 200 vesicle in one hippocampal synapse [Fowler 2015](https://www.sciencedirect.com/science/article/pii/S0014482715000920?via%3Dihub) - in this paper also a good explanation of the sizes of the different pools. Also points again to different pools for spontaneous release  ... but the same vesicles are in both pools [Wilhelm et al 2010](https://www.nature.com/articles/nn.2690)
+- around 200 vesicle in one hippocampal synapse [Fowler 2015](https://www.sciencedirect.com/science/article/pii/S0014482715000920?via%3Dihub) - in this paper also a good explanation of the sizes of the different pools. Also points again to different pools for spontaneous release  ... but the same vesicles are in both pools [Wilhelm et al 2010](https://www.nature.com/articles/nn.2690)
 
-
-[Kvalali 2015](https://www.nature.com/articles/nrn3875) - different pools based on their reliance on dynamin function. In their are also comprehensive schemata of synapses
+- [Kvalali 2015](https://www.nature.com/articles/nrn3875) - different pools based on their reliance on dynamin function. In their are also comprehensive schemata of synapses

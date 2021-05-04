@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.14.2
+# v0.14.5
 
 using Markdown
 using InteractiveUtils
@@ -63,10 +63,10 @@ u0 = [1.0,0.0]
 
 # ╔═╡ 327d620b-fbad-48c5-9784-e19254c65ea8
 # running the model for 1200 secs
-t_span = (0.0,2000.0)
+t_span = (0.0,1200.0)
 
 # ╔═╡ 6bcc1592-6e2c-41a3-b19e-d59a95ef5245
-p = (α=0.0008, β=0.5)
+p = (α=0.008, β=0.5)
 
 # ╔═╡ 820f98f4-9f2b-4139-b184-deb579f15d4e
 md"α after LPA application: $(@bind alpha_new NumberField(0.0001:0.0001:0.1, default=0.0008))
@@ -75,6 +75,9 @@ md"α after LPA application: $(@bind alpha_new NumberField(0.0001:0.0001:0.1, de
 	
 time of LPA application: $(@bind time_new Slider(0:10:1200, default=200, show_value=true))
 	"
+
+
+# ╔═╡ a90ffa7f-4269-464f-a087-3c93a78718ae
 
 
 # ╔═╡ f5007ad3-2f95-4229-a5ae-8367c03e80c7
@@ -111,10 +114,11 @@ end
 # ╟─ad798920-094d-42d0-9740-76e90ca54a84
 # ╟─57e6296c-a95b-437c-9254-9267ef576b90
 # ╟─74d113d9-e358-482c-bd56-55cc422c13d0
-# ╠═e1ed9123-715e-4c78-9a50-cde91d7825b8
-# ╠═327d620b-fbad-48c5-9784-e19254c65ea8
-# ╠═6bcc1592-6e2c-41a3-b19e-d59a95ef5245
-# ╠═f4b08f7a-3857-4792-a32d-4da2f007b1f1
+# ╟─e1ed9123-715e-4c78-9a50-cde91d7825b8
+# ╟─327d620b-fbad-48c5-9784-e19254c65ea8
+# ╟─6bcc1592-6e2c-41a3-b19e-d59a95ef5245
+# ╟─f4b08f7a-3857-4792-a32d-4da2f007b1f1
 # ╟─820f98f4-9f2b-4139-b184-deb579f15d4e
-# ╠═f5007ad3-2f95-4229-a5ae-8367c03e80c7
-# ╠═5efc8b40-84f4-446c-a936-a5dac0699ad0
+# ╠═a90ffa7f-4269-464f-a087-3c93a78718ae
+# ╟─f5007ad3-2f95-4229-a5ae-8367c03e80c7
+# ╟─5efc8b40-84f4-446c-a936-a5dac0699ad0

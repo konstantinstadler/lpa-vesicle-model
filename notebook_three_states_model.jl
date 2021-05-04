@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.14.2
+# v0.14.5
 
 using Markdown
 using InteractiveUtils
@@ -16,15 +16,12 @@ end
 # ╔═╡ 9e472ad5-8de4-4b82-b84d-ce01797fcdbd
 begin
     import Pkg
-	Pkg.activate(mktempdir())
-
     Pkg.add("DifferentialEquations")
-	using DifferentialEquations
-
-    # Pkg.add("Plots")
-	# using Plots
-
+    Pkg.add("Plots")
     Pkg.add("PlutoUI")
+
+	using DifferentialEquations
+	using Plots
 	using PlutoUI
 	
 	plotly()
@@ -132,9 +129,9 @@ end
 # ╟─9e472ad5-8de4-4b82-b84d-ce01797fcdbd
 # ╠═e9cd9aed-da67-4083-ada6-2773f5ee4e30
 # ╟─c5fcdd8e-1042-417e-9ddb-ba10adc6a67b
-# ╠═4c5b59c9-c639-40ef-8c14-d61ebbc71262
+# ╟─4c5b59c9-c639-40ef-8c14-d61ebbc71262
 # ╟─8e584a9a-8af4-47fc-8f4c-025b526d26d7
-# ╟─14d8b628-6734-4f89-a3ff-79103fe72038
+# ╠═14d8b628-6734-4f89-a3ff-79103fe72038
 # ╟─008c7875-3c93-4dfb-ad19-57b82fff85a2
 # ╟─58273622-33aa-4e99-b8b3-eeca0985c1d9
 # ╠═e611cc3b-b831-433e-848b-dfe05fc7faa4
