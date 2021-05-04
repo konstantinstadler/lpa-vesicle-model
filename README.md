@@ -17,7 +17,7 @@ Starting the Binder instance (by clicking on the notebook name) might take some 
     This is a differential equations based model of spontaneous synaptic vesicle recycling. 
     The model is based on single pool with four states and in the article fitted against experimental observation with tagged/dyed vesicles.
 
-- **[./notebook_three_states_model.jl](https://mybinder.org/v2/gh/fonsp/pluto-on-binder/v0.14.5?urlpath=pluto/open?url=https%253A%252F%252Fgithub.com%252Fkonstantinstadler%252Flpa-vesicle-model%252Fblob%252Fmaster%252Fnotebook_three_states_model.jl%253Fraw%253Dtrue)**
+- **[./notebook_three_states_model.jl](https://binder.plutojl.org/v0.14.5/open?url=https%253A%252F%252Fgithub.com%252Fkonstantinstadler%252Flpa-vesicle-model%252Fblob%252Fmaster%252Fnotebook_three_states_model.jl%253Fraw%253Dtrue)**
 
     This is simplified version of the Sara 2005 model with three states, omitting the recycled but no longer dyed state. This should most closely match the observations in our paper.
 

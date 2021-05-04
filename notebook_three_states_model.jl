@@ -21,11 +21,12 @@ begin
     # Pkg.add("DifferentialEquations")
 	# using DifferentialEquations
 
-    # Pkg.add("Plots")
+    Pkg.add("Plots")
+	using Plots
+
     Pkg.add("PlutoUI")
 	using PlutoUI
 	
-	using Plots
 	plotly()
 end
 
