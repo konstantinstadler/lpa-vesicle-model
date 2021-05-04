@@ -6,6 +6,7 @@ The models are developed in [Julia](https://julialang.org/) using the [Different
 
 ## Structure
 
+In ./static_runs you find some precompiled runs of these notebooks
 
 - ./notebook_sara2005_reproduce.jl
 
@@ -22,6 +23,8 @@ The models are developed in [Julia](https://julialang.org/) using the [Different
     A even more simple model with a resting pool and a recycling rate. Seems too simple for our application.
 
 - ./src/lpa_vesicle_model.jl - Scratchpad for code development and testing. Only coders go there.
+
+
 
 ## Installation
 
