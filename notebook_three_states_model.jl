@@ -17,13 +17,15 @@ end
 begin
     import Pkg
 	Pkg.activate(mktempdir())
-    Pkg.add("DifferentialEquations")
-    Pkg.add("Plots")
+
+    # Pkg.add("DifferentialEquations")
+	# using DifferentialEquations
+
+    # Pkg.add("Plots")
     Pkg.add("PlutoUI")
-	
-	using DifferentialEquations
-	using Plots
 	using PlutoUI
+	
+	using Plots
 	plotly()
 end
 
