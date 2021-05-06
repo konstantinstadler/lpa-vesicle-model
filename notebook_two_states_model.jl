@@ -16,7 +16,6 @@ end
 # ╔═╡ ad798920-094d-42d0-9740-76e90ca54a84
 begin
     import Pkg
-	Pkg.activate(mktempdir())
     Pkg.add("DifferentialEquations")
     Pkg.add("Plots")
     Pkg.add("PlutoUI")
@@ -69,9 +68,9 @@ t_span = (0.0,1200.0)
 p = (α=0.008, β=0.5)
 
 # ╔═╡ 820f98f4-9f2b-4139-b184-deb579f15d4e
-md"α after LPA application: $(@bind alpha_new NumberField(0.0001:0.0001:0.1, default=0.0008))
+md"α after LPA application: $(@bind alpha_new NumberField(0.0001:0.0001:0.1, default=0.016))
 	
-β after LPA application: $(@bind beta_new NumberField(0.0:0.001:1.0, default=0.002))
+β after LPA application: $(@bind beta_new NumberField(0.0:0.001:1.0, default=0.05))
 	
 time of LPA application: $(@bind time_new Slider(0:10:1200, default=200, show_value=true))
 	"

@@ -67,7 +67,7 @@ md"Setting the initial state of the system"
 
 # ╔═╡ 4c5b59c9-c639-40ef-8c14-d61ebbc71262
 # We start with all vesicles in the resting pool
-u0 = [1.0, 0.0, 0.0]
+u0 = [0.5, 0.0, 0.5]
 
 # ╔═╡ 8e584a9a-8af4-47fc-8f4c-025b526d26d7
 # running the model for 1200 secs
@@ -75,10 +75,10 @@ t_span = (0.0,1200.0)
 
 # ╔═╡ 14d8b628-6734-4f89-a3ff-79103fe72038
 # initial parameters 
-p = (α=0.0008, β=0.5, σ=1.67)
+p = (α=0.008, β=0.5, σ=1.67)
 
 # ╔═╡ 008c7875-3c93-4dfb-ad19-57b82fff85a2
-md"α after LPA application: $(@bind alpha_new NumberField(0.0001:0.0001:0.01, default=0.0008))
+md"α after LPA application: $(@bind alpha_new NumberField(0.0001:0.0001:0.01, default=0.018))
 	
 β after LPA application: $(@bind beta_new NumberField(0.0:0.01:1.0, default=0.01))
 
@@ -126,13 +126,13 @@ end
 # ╟─e0dc4b68-a8b7-11eb-0e1c-c7a342d92771
 # ╟─6fc0f5f6-8d71-4a64-bf2c-9bddeee4b41f
 # ╟─be6da4c0-b437-40c6-9674-ef51d8a66340
-# ╟─9e472ad5-8de4-4b82-b84d-ce01797fcdbd
+# ╠═9e472ad5-8de4-4b82-b84d-ce01797fcdbd
 # ╠═e9cd9aed-da67-4083-ada6-2773f5ee4e30
 # ╟─c5fcdd8e-1042-417e-9ddb-ba10adc6a67b
-# ╟─4c5b59c9-c639-40ef-8c14-d61ebbc71262
+# ╠═4c5b59c9-c639-40ef-8c14-d61ebbc71262
 # ╟─8e584a9a-8af4-47fc-8f4c-025b526d26d7
-# ╠═14d8b628-6734-4f89-a3ff-79103fe72038
+# ╟─14d8b628-6734-4f89-a3ff-79103fe72038
 # ╟─008c7875-3c93-4dfb-ad19-57b82fff85a2
-# ╟─58273622-33aa-4e99-b8b3-eeca0985c1d9
+# ╠═58273622-33aa-4e99-b8b3-eeca0985c1d9
 # ╠═e611cc3b-b831-433e-848b-dfe05fc7faa4
 # ╠═19db778c-629e-4848-8b9b-9f4f4a03a0a2
